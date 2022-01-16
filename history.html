@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+            {% if buys["symbol"] != None %}
+            <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Transacted</th>
+            <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for buy in buys %}
+            <tr>
+            <th>{{ buy["symbol"] }}</th>
+            <th>{{ buy["shares"] }}</th>
+            <th>{{ buy["price"] }}</th>
+            <th>{{ buy["Timestamp"]}}</th>
+            <th>Buy</th>
+            </tr>
+            {% endfor %}
+            {% for sell in sells %}
+            <tr>
+            <th>{{ sell["symbol"] }}</th>
+            <th>{{ sell["shares"] }}</th>
+            <th>{{ sell["price"] }}</th>
+            <th>{{ sell["Timestamp"]}}</th>
+            <th>Sell</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+            {% endif %}
+{% endblock %}

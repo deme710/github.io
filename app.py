@@ -39,7 +39,7 @@ def after_request(response):
     return response
 
 
-@app.route("/")
+@app.route("/github.io/")
 @login_required
 def index():
     """Show portfolio of stocks"""
@@ -84,7 +84,7 @@ def index():
     return apology("Homepage")
 
 
-@app.route("/buy", methods=["GET", "POST"])
+@app.route("/github.io/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
@@ -117,7 +117,7 @@ def buy():
         return render_template("buy.html")
 
 
-@app.route("/history")
+@app.route("/github.io/history")
 @login_required
 def history():
     """Show history of transactions"""
@@ -140,7 +140,7 @@ def history():
     return render_template("history.html", buys=buys, sells=sells)
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/github.io/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
 
@@ -176,7 +176,7 @@ def login():
         return render_template("login.html")
 
 
-@app.route("/logout")
+@app.route("/github.io/logout")
 def logout():
     """Log user out"""
 
@@ -202,7 +202,7 @@ def quote():
         return render_template("quote.html")
 
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/github.io/register", methods=["GET", "POST"])
 def register():
     """Register user"""
     if request.method == "POST":
@@ -237,7 +237,7 @@ def register():
         return render_template("register.html")
 
 
-@app.route("/changepw", methods=["GET", "POST"])
+@app.route("/github.io/changepw", methods=["GET", "POST"])
 @login_required
 def changepw():
     """change pw of user"""
@@ -262,7 +262,7 @@ def changepw():
     else:
         return render_template("changepw.html")
 
-@app.route("/sell", methods=["GET", "POST"])
+@app.route("/github.io/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     """Sell shares of stock"""
